@@ -57,8 +57,26 @@ footer {
     color: #fff;
     text-align: center;
     padding: 1rem;
-    position: relative;
+    position: fixed;
     width: 100%;
+    bottom: 0;
+}
+/* Form Container*/
+
+h1{
+    text-align: center;
+}
+.form_container{
+    width: 100%;
+    margin-top: 10px;
+}
+
+form{
+    /* border: #333 1px solid; */
+    width: 60%;
+    margin: auto;
+    border-style: inset;
+    padding: 10px 15px;
 }
 
 /* Media Queries */

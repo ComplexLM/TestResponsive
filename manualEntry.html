@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrer une Recette</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="header"></div>
+    <section>
+        <div class="form_container">
+            <h1>Entrer une Recette</h1>
+            <form id="recipeForm">
+                <!-- Formulaire comme précédemment -->
+                <label for="recipeName">Nom de la recette:</label>
+                <input type="text" id="recipeName" name="recipeName" required><br><br>
+
+                <label for="servings">Pour combien de personnes:</label>
+                <input type="number" id="servings" name="servings" required><br><br>
+
+                <label for="ingredients">Ingrédients (séparés par des virgules):</label>
+                <input type="text" id="ingredients" name="ingredients" required><br><br>
+
+                <label for="cookingMethod">Mode de cuisson:</label>
+                <input type="text" id="cookingMethod" name="cookingMethod" required><br><br>
+
+                <label for="steps">Étapes de la recette (séparées par des points-virgules):</label>
+                <textarea id="steps" name="steps" required></textarea><br><br>
+
+                <button type="submit">Soumettre</button>
+            </form>
+        </div>
+    </section>
+    <div id="footer"></div>
+    <script src="scripts.js"></script>
+</body>
+</html>
