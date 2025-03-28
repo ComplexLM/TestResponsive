@@ -255,6 +255,94 @@
                 "nom": "Mangue",
                 "usages": ["Entrée", "Plats"]
             }
+        ],
+        "épices": [
+            {
+                "nom": "Poivre",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Sel",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Paprika",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Curry",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Cannelle",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Vanille",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Muscade",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Girofle",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Coriandre",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Cumin",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Gingembre",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Curcuma",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Piment",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Anis",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Badiane",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Cardamome",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Safran",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Piment d'Espelette",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Piment de Cayenne",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Piment de Jamaïque",
+                "usages": ["Entrée", "Plats"]
+            }
+        ],
+        "oeufs": [
+            {
+                "nom": "Oeufs",
+                "usages": ["Entrée", "Plats", "Desserts", "Pâtisseries"]
+            }
         ]
     }
 }

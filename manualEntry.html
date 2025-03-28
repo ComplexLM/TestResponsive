@@ -18,11 +18,13 @@
                 <label for="servings">Pour combien de personnes:</label>
                 <input type="number" id="servings" name="servings" required><br><br>
 
-                <label for="ingredient">Ajouter un ingrédient:</label>
-                <input type="text" id="ingredient" name="ingredient" placeholder="Nom de l'ingrédient">
+                <label for="ingredient">Ajouter un ingrédient:</label><br><br>
+                <label for="ingredientSearch">Rechercher un ingrédient:</label>
+                <input type="text" id="ingredientSearch" name="ingredientSearch" list="ingredientSuggestions" placeholder="Tapez pour rechercher...">
+                <datalist id="ingredientSuggestions"></datalist>
                 <input type="number" id="quantity" name="quantity" placeholder="Quantité">
                 <select id="unit" name="unit">
-                    <option value="unités">unités</option>
+                    <option value="unités">unité(s)</option>
                     <option value="cuillère à soupe">cuillère à soupe</option>
                     <option value="cuillère à café">cuillère à café</option>
                     <option value="g">grammes</option>
