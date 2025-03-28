@@ -1,0 +1,260 @@
+{
+    "types": {
+        "légumes": [
+            {
+                "nom": "Haricots",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Carotte",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Tomate",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Courgette",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Poivron",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Aubergine",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Champignon",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Oignon",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Poireau",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Courge",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Pomme de Terre",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Patate Douce",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Navet",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Radis",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Betterave",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Chou",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Salade",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Concombre",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Céleri",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Epinard",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Blette",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Artichaut",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Asperge",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Brocoli",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Chou-fleur",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Cresson",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Endive",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Fenouil",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Salsifis",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Topinambour",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Echalote",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Ail",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Gingembre",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Curcuma",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Cumin",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Maïs",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Pois",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Fève",
+                "usages": ["Entrée", "Plats"]
+            }
+        ],
+        "viande": [
+            {
+                "nom": "Côtelette de Porc",
+                "variantes": ["Filet de Porc", "Jambon", "Saucisse"],
+                "usages": ["Plats", "Desserts", "Pâtisseries"]
+            }
+        ],
+        "féculents": [
+            {
+                "nom": "Farine",
+                "usages": ["Entrée", "Plats", "Desserts", "Pâtisseries"]
+            },
+            {
+                "nom": "Riz",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Pomme de Terre",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Pâtes",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Semoule",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Lentilles",
+                "usages": ["Entrée", "Plats"]
+            }
+        ],
+        "liquides": [
+            {
+                "nom": "Lait",
+                "usages": ["Entrée", "Plats", "Desserts", "Pâtisseries"]
+            },
+            {
+                "nom": "Vin",
+                "variantes": ["Vin Blanc", "Vin Rouge", "Vin Rosé"],
+                "usages": ["Entrée", "Plats", "Desserts"]
+            }
+        ],
+        "fruits": [
+            {
+                "nom": "Pomme",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Banane",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Ananas",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Fraise",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Framboise",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Myrtille",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Mûre",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Cassis",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Groseille",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Cerise",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Pêche",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Orange",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Kiwi",
+                "usages": ["Entrée", "Plats"]
+            },
+            {
+                "nom": "Mangue",
+                "usages": ["Entrée", "Plats"]
+            }
+        ]
+    }
+}

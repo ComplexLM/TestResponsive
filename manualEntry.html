@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self';"> -->
     <title>Entrer une Recette</title>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -13,15 +12,28 @@
         <div class="form_container">
             <h1>Entrer une Recette</h1>
             <form id="recipeForm">
-                <!-- Formulaire comme précédemment -->
                 <label for="recipeName">Nom de la recette:</label>
                 <input type="text" id="recipeName" name="recipeName" required><br><br>
 
                 <label for="servings">Pour combien de personnes:</label>
                 <input type="number" id="servings" name="servings" required><br><br>
 
-                <label for="ingredients">Ingrédients (séparés par des virgules):</label>
-                <input type="text" id="ingredients" name="ingredients" required><br><br>
+                <label for="ingredient">Ajouter un ingrédient:</label>
+                <input type="text" id="ingredient" name="ingredient" placeholder="Nom de l'ingrédient">
+                <input type="number" id="quantity" name="quantity" placeholder="Quantité">
+                <select id="unit" name="unit">
+                    <option value="unités">unités</option>
+                    <option value="cuillère à soupe">cuillère à soupe</option>
+                    <option value="cuillère à café">cuillère à café</option>
+                    <option value="g">grammes</option>
+                    <option value="mg">mg</option>
+                    <option value="kg">kg</option>
+                    <option value="mL">mL</option>
+                    <option value="cL">cL</option>
+                    <option value="L">L</option>
+                </select>
+                <button type="button" id="addIngredient">Ajouter</button>
+                <ul id="ingredientList"></ul><br><br>
 
                 <label for="cookingMethod">Mode de cuisson:</label>
                 <input type="text" id="cookingMethod" name="cookingMethod" required><br><br>
