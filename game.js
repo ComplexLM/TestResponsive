@@ -132,7 +132,7 @@ function draw() {
         } else {
             lives--;
             if (!lives) {
-                alert("GAME OVER");
+                // alert("GAME OVER");
                 document.location.reload();
             } else {
                 x = canvas.width / 2;
@@ -156,3 +156,23 @@ function draw() {
 }
 
 draw();
+
+// Gemini
+// import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
+// import { getDatabase, push, update, onValue } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-database.js";
+
+// Doc google
+// import { initializeApp } from "./node_modules/@firebase/app";
+// import { getDatabase, push, update, onValue } from "./node_modules/@firebase/database";
+// import { ref } from "./node_modules/@firebase/database";
+
+// Your web app's Firebase configuration
+// const firebaseConfig = {
+//     apiKey: "VOTRE_API_KEY",
+//     authDomain: "VOTRE_AUTH_DOMAIN",
+//     databaseURL: "VOTRE_DATABASE_URL",
+//     projectId: "VOTRE_PROJECT_ID",
+//     storageBucket: "VOTRE_STORAGE_BUCKET",
+//     messagingSenderId: "VOTRE_MESSAGING_SENDER_ID",
+//     appId: "VOTRE_APP_ID"
+//   };

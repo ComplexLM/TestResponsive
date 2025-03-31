@@ -1,3 +1,7 @@
 # Ignore credentials files
 credentials.json
-credentials.js         
+credentials.js
+firebaseConfig.js      
+node_modules
+package-lock.json
+package.json
