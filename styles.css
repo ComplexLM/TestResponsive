@@ -91,17 +91,55 @@ form{
 .recipe-actions {
     text-align: center;
     margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
-.recipe-actions button {
-    margin: 10px;
+.recipe-actions-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.recipe-actions-buttons button {
     padding: 10px 20px;
     font-size: 1em;
     cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.recipe-actions-buttons button:hover {
+    background-color: #0056b3;
 }
 
 #recipes-display {
-    padding: 1rem;
+    text-align: center;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#recipes-display button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+#recipes-display button:hover {
+    background-color: #0056b3;
 }
 
 #recipes-display h2 {

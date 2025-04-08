@@ -43,14 +43,18 @@
     <div id="recipes-display">
         <h2>Recettes</h2>
         <ul id="recipeList"></ul>
-        <button onclick="location.href='allRecipes.html'">Voir toutes les recettes</button>
+        <button id="see_all_recipes_button" onclick="location.href='allRecipes.html'">Voir toutes les recettes</button>
     </div>
     <div style="width: 80%; height: 3px; background-color: #000; margin: 10px auto;"></div>
     <main>
         <div class="recipe-actions">
             <h2>Entrer une Recette</h2>
-            <button onclick="location.href='manualEntry.html'">Entrer la recette à la main</button>
-            <button onclick="location.href='autoEntry.html'">Utiliser une API/IA</button>
+            <p>Vous pouvez entrer une recette soit manuellement, soit en utilisant une API ou une IA.</p>
+            <p>Choisissez l'option qui vous convient le mieux :</p>
+            <div class="recipe-actions-buttons">
+                <button id="add_recipe_button" onclick="location.href='manualEntry.html'">Entrer la recette à la main</button>
+                <button id="add_recipe_api_button" onclick="location.href='autoEntry.html'">Utiliser une API/IA</button>
+            </div>
         </div>
     </main>
 
