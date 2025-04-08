@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceuil</title>
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self';"> -->
-    <title>Casse-briques</title>
     <style>
         canvas {
             border: 1px solid #000;
@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="./utensil_spoon_and_fork_cookware_icon_263264.ico">
     <script src="./scripts.js"></script>
+    <script type="module" src="./firebase/12recipes.js"></script>
     
 </head>
 <body>
@@ -39,9 +40,15 @@
     <!-- <h1 style="text-decoration: #000;text-align: center;"> Casse brique</h1>
     <canvas id="gameCanvas" width="480" height="320"></canvas> -->
     <div style="width: 80%; height: 3px; background-color: #000; margin: 10px auto;"></div>
+    <div id="recipes-display">
+        <h2>Recettes</h2>
+        <ul id="recipeList"></ul>
+        <button onclick="location.href='allRecipes.html'">Voir toutes les recettes</button>
+    </div>
+    <div style="width: 80%; height: 3px; background-color: #000; margin: 10px auto;"></div>
     <main>
         <div class="recipe-actions">
-            <h1>Entrer une Recette</h1>
+            <h2>Entrer une Recette</h2>
             <button onclick="location.href='manualEntry.html'">Entrer la recette à la main</button>
             <button onclick="location.href='autoEntry.html'">Utiliser une API/IA</button>
         </div>

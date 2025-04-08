@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toutes les Recettes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./styles/allRecipes.css">
+    <link rel="icon" type="image/x-icon" href="./utensil_spoon_and_fork_cookware_icon_263264.ico">
+    <script src="./scripts.js"></script>
+    <script type="module" src="./firebase/allRecipes.js"></script>
+</head>
+<body>
+    <div id="header"></div>
+    <main>
+        <section>
+            <h1>Toutes les Recettes</h1>
+            <div class="search-and-filters">
+                <input type="text" id="searchBar" placeholder="Rechercher une recette...">
+                <select id="filterDifficulty">
+                    <option value="">Filtrer par difficulté</option>
+                    <option value="facile">Facile</option>
+                    <option value="moyenne">Moyenne</option>
+                    <option value="difficile">Difficile</option>
+                </select>
+                <select id="filterTime">
+                    <option value="">Filtrer par temps</option>
+                    <option value="moins30">Moins de 30 minutes</option>
+                    <option value="30-60">30 à 60 minutes</option>
+                    <option value="plus60">Plus de 60 minutes</option>
+                </select>
+                <select id="filterType">
+                    <option value="">Filtrer par type de plat</option>
+                    <option value="entrée">Entrée</option>
+                    <option value="plat">Plat</option>
+                    <option value="dessert">Dessert</option>
+                </select>
+            </div>
+            <ul id="recipeList"></ul>
+            <div class="pagination">
+                <button id="prevPage" disabled>Précédent</button>
+                <span id="pageInfo">Page 1/1</span>
+                <button id="nextPage" disabled>Suivant</button>
+            </div>
+        </section>
+    </main>
+    <div id="footer"></div>
+</body>
+</html>

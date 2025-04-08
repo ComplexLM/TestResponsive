@@ -100,9 +100,53 @@ form{
     cursor: pointer;
 }
 
+#recipes-display {
+    padding: 1rem;
+}
+
+#recipes-display h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+#recipes-display p {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#recipes-display ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+}
+
+#recipes-display ul li {
+    background-color: #f4f4f4;
+    padding: 1rem;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#recipes-display ul li:hover {
+    background-color: #e0e0e0;
+}
+
 /* Media Queries */
+@media (max-width: 1024px) {
+    #recipes-display ul {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
     .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #recipes-display ul {
         grid-template-columns: repeat(2, 1fr);
     }
 }
@@ -115,5 +159,9 @@ form{
     .recipe-actions button {
         width: 100%;
         margin: 10px 0;
+    }
+
+    #recipes-display ul {
+        grid-template-columns: 1fr;
     }
 }

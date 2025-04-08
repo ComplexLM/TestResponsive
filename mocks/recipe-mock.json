@@ -1,0 +1,88 @@
+{
+    "title": "Makis au saumon", 
+    "url_images": [
+      "https://example.com/images/makis_au_saumon_1.jpg",
+      "https://example.com/images/makis_au_saumon_2.jpg"
+    ],
+    "description": "Préparez de délicieux makis au saumon avec cette recette simple et rapide. Idéal pour un repas léger ou un apéritif entre amis.",
+    "category": "Sushi",
+    "difficulty": "Moyenne",
+    "cuisine": "Japonaise",
+    "video_link": "https://example.com/videos/makis_au_saumon.mp4",
+    "author": {
+      "name": "Chef Sushi",
+      "url": "https://example.com/chefs/chef_sushi",
+      "image": "https://example.com/images/chef_sushi.jpg"
+    },
+    "portions": 4,
+    "duration": {
+      "preparation": 45,
+      "rest": 30,
+      "cooking": 15
+    },
+    "ingredients": [
+      { "name": "Riz à sushi", "quantity": 300, "unit": "g" },
+      { "name": "Eau", "quantity": 360, "unit": "ml" },
+      { "name": "Vinaigre de riz", "quantity": 4, "unit": "cuillères à soupe" },
+      { "name": "Sucre", "quantity": 2, "unit": "cuillères à soupe" },
+      { "name": "Sel", "quantity": 1, "unit": "cuillère à café" },
+      { "name": "Feuilles de nori", "quantity": 4, "unit": "" },
+      { "name": "Saumon cru de qualité sashimi", "quantity": 200, "unit": "g" },
+      { "name": "Concombre (optionnel)", "quantity": 0.5, "unit": "" },
+      { "name": "Avocat (optionnel)", "quantity": 1, "unit": "" },
+      { "name": "Sauce soja", "quantity": 1, "unit": "bol pour le service" },
+      { "name": "Wasabi (optionnel)", "quantity": 1, "unit": "petite portion" }
+    ],
+    "steps": [
+      {
+        "description": "Rincer le riz à sushi plusieurs fois jusqu’à ce que l’eau soit claire.",
+        "duration": 5
+      },
+      {
+        "description": "Cuire le riz dans l’eau : porter à ébullition, couvrir, puis laisser cuire à feu doux 15 min.",
+        "duration": 15,
+        "robot": {
+          "name": "Cuiseur à riz",
+          "model": "CR-1000"
+        }
+      },
+      {
+        "description": "Laisser le riz reposer couvert 10 min après cuisson.",
+        "duration": 10
+      },
+      {
+        "description": "Préparer l’assaisonnement : mélanger vinaigre de riz, sucre et sel. Chauffer légèrement si nécessaire.",
+        "duration": 2
+      },
+      {
+        "description": "Verser l’assaisonnement sur le riz et mélanger délicatement. Laisser refroidir à température ambiante.",
+        "duration": 15
+      },
+      {
+        "description": "Couper le saumon en fines bandes. Faire de même avec l’avocat ou le concombre si utilisé.",
+        "duration": 10
+      },
+      {
+        "description": "Sur une natte en bambou, poser une feuille de nori, côté brillant dessous.",
+        "duration": 1
+      },
+      {
+        "description": "Étaler une couche de riz sur les 3/4 de la feuille, humidifier légèrement les doigts si besoin.",
+        "duration": 3
+      },
+      {
+        "description": "Disposer les garnitures au centre (saumon, avocat, concombre).",
+        "duration": 2
+      },
+      {
+        "description": "Rouler fermement à l’aide de la natte, humidifier légèrement le bord pour sceller.",
+        "duration": 2
+      },
+      {
+        "description": "Couper le rouleau en 6 à 8 morceaux à l’aide d’un couteau humide.",
+        "duration": 3,
+        "repeat": "Répéter pour chaque feuille de nori."
+      }
+    ],
+    "notes": "Utiliser du saumon très frais, idéalement acheté chez un poissonnier qui garantit la qualité sashimi. Servir avec sauce soja, wasabi et gingembre mariné."
+  }

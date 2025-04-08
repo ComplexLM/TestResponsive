@@ -96,6 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadIngredients().then(() => {
         populateIngredientSuggestions();
     });
+
     console.log('Le site est chargé et prêt !');
 });
 
