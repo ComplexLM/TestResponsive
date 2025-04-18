@@ -20,33 +20,65 @@ const storage = getStorage(app);
 console.log("Firebase Storage initialisé avec succès !");
 console.log("Référence de Firebase Storage :", storage);
 
-document.getElementById('image').addEventListener('change', function(event) { // ID corrigé
+const selectedFiles = [];
+
+// Événement : Afficher l'aperçu des images sélectionnées
+document.getElementById('image').addEventListener('change', function(event) {
     const previewContainer = document.getElementById('previewImages');
     previewContainer.innerHTML = ''; // Réinitialiser les aperçus
-    const files = event.target.files;
 
-    for (let i = 0; i < files.length; i++) {
-        const file = files[i];
+    // Réinitialiser le tableau des fichiers sélectionnés
+    selectedFiles.length = 0;
+    const files = Array.from(event.target.files);
 
-        // Vérifie que c’est bien une image
-        if (!file.type.startsWith('image/')) continue;
+    files.forEach((file, index) => {
+        // On ne garde que les images
+        if (!file.type.startsWith('image/')) return;
+
+        selectedFiles.push(file); // Ajouter au tableau temporaire
 
         const reader = new FileReader();
         reader.onload = function(e) {
+            const wrapper = document.createElement('div');
+            wrapper.style.display = 'inline-block';
+            wrapper.style.margin = '10px';
+            wrapper.style.position = 'relative';
+
             const img = document.createElement('img');
-            img.src = e.target.result; // Assurez-vous que l'image est bien chargée
+            img.src = e.target.result;
             img.style.height = '100px';
             img.style.borderRadius = '8px';
             img.style.objectFit = 'cover';
-            img.alt = "Aperçu de l'image"; // Ajout d'un attribut alt pour l'accessibilité
-            previewContainer.appendChild(img);
+            img.alt = `Image sélectionnée`;
+
+            const removeBtn = document.createElement('button');
+            removeBtn.textContent = '✕';
+            removeBtn.style.position = 'absolute';
+            removeBtn.style.top = '0';
+            removeBtn.style.right = '0';
+            removeBtn.style.background = 'red';
+            removeBtn.style.color = 'white';
+            removeBtn.style.border = 'none';
+            removeBtn.style.borderRadius = '50%';
+            removeBtn.style.cursor = 'pointer';
+            removeBtn.style.width = '20px';
+            removeBtn.style.height = '20px';
+            removeBtn.title = 'Supprimer cette image';
+
+            removeBtn.addEventListener('click', () => {
+                selectedFiles.splice(index, 1); // Supprimer l'image du tableau
+                wrapper.remove(); // Supprimer l'aperçu
+            });
+
+            wrapper.appendChild(img);
+            wrapper.appendChild(removeBtn);
+            previewContainer.appendChild(wrapper);
         };
-        reader.onerror = function() {
-            console.error('Erreur lors du chargement de l\'image :', file.name);
-        };
-        reader.readAsDataURL(file); // Lire le fichier comme URL de données
-    }
+
+        reader.readAsDataURL(file);
+    });
 });
+
 
 // Initialize the ingredient list
 const ingredientList = [];
@@ -78,7 +110,7 @@ document.getElementById('recipeForm').addEventListener('submit', async function(
     
     // Upload des images
     const imageInput = document.getElementById('image'); // ID corrigé
-    const files = imageInput.files;
+    const files = selectedFiles; // Utiliser le tableau temporaire
     //const storage = getStorage(app);
     const imageUrls = [];
 
