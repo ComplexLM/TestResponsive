@@ -1,10 +1,12 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
 import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-database.js";
+import { getStorage, ref as storageRef, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-storage.js";
 import { firebaseConfig } from "../firebaseConfig.js";
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
+const storage = getStorage(app);
 const recettesRef = ref(database, 'recettes');
 
 // State variables
@@ -25,10 +27,29 @@ const pageInfo = document.getElementById('pageInfo');
 
 // Fetch recipes from Firebase
 function fetchRecipes() {
-    onValue(recettesRef, (snapshot) => {
+    onValue(recettesRef, async (snapshot) => {
         const recipes = snapshot.val();
         if (recipes) {
-            allRecipes = Object.values(recipes);
+            allRecipes = await Promise.all(Object.values(recipes).map(async (recipe) => {
+                // Log pour vérifier les données des recettes
+                console.log('Recette récupérée :', recipe);
+
+                if (!recipe.url_images || recipe.url_images.length === 0 || recipe.url_images[0] === "" || recipe.url_images[0] === "./default-thumbnail.jpg" || recipe.url_images[0] === null) {
+                    // Fetch image URLs from Firebase Storage
+                    const imageRefs = recipe.imagePaths || []; // Assuming `imagePaths` contains storage paths
+                    recipe.url_images = await Promise.all(imageRefs.map(async (path) => {
+                        try {
+                            return await getDownloadURL(storageRef(storage, path));
+                        } catch (error) {
+                            console.error(`Erreur lors de la récupération de l'image ${path}:`, error);
+                            return '../default-thumbnail.jpg'; // Fallback image
+                        }
+                    }));
+                }
+                // Vérifiez que la propriété difficulty est bien définie
+                recipe.difficulty = recipe.difficulty || 'not specified'; // Valeur par défaut si non définie
+                return recipe;
+            }));
             applyFilters();
         } else {
             console.log('Aucune recette trouvée.');
@@ -45,14 +66,19 @@ function applyFilters() {
     const time = filterTime.value;
     const type = filterType.value;
 
+    // Log pour déboguer les valeurs des filtres
+    console.log('Valeur du filtre difficulty :', difficulty);
+
     filteredRecipes = allRecipes.filter(recipe => {
         const matchesSearch = recipe.nom && recipe.nom.toLowerCase().includes(searchQuery);
-        //const matchesIngredients = recipe.ingredients && recipe.ingredients.some(ingredient => ingredient.toLowerCase().includes(searchQuery));
-        const matchesDifficulty = !difficulty || recipe.difficulty === difficulty;
+        const matchesDifficulty = !difficulty || recipe.difficulty.toLowerCase() === difficulty.toLowerCase(); // Comparaison insensible à la casse
         const matchesTime = !time || (time === "moins30" && recipe.temps <= 30) ||
             (time === "30-60" && recipe.temps > 30 && recipe.temps <= 60) ||
             (time === "plus60" && recipe.temps > 60);
         const matchesType = !type || recipe.type === type;
+
+        // Log pour vérifier chaque recette filtrée
+        console.log('Recette :', recipe.nom, '| Difficulty :', recipe.difficulty, '| Match :', matchesDifficulty);
 
         return matchesSearch && matchesDifficulty && matchesTime && matchesType;
     });
@@ -73,7 +99,7 @@ function renderRecipes() {
         listItem.classList.add('recipe-item');
 
         const thumbnail = document.createElement('img');
-        thumbnail.src = recipe.url_image || './default-thumbnail.jpg';
+        thumbnail.src = recipe.url_images[0] && recipe.url_images[0] !== "" ? recipe.url_images[0] : './default-thumbnail.jpg';
         thumbnail.alt = recipe.nom;
         thumbnail.classList.add('recipe-thumbnail');
 

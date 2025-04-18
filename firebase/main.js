@@ -17,10 +17,12 @@ console.log("Référence de la base de données :", database);
 
 // Initialize Firebase Storage
 const storage = getStorage(app);
+// Bucket personnalisé pour le stockage des images
+//const storageBucket = 'gs://recettes-8c1a0.appspot.com'; // Remplacez par votre bucket Firebase Storage
 console.log("Firebase Storage initialisé avec succès !");
 console.log("Référence de Firebase Storage :", storage);
 
-// Constants pour le stockage des images FRONTEND
+// Constants pour le stockage des images FRONTEND // Penser à checker la taille max des images uploadées
 const dropArea = document.getElementById('dropArea');
 const fileInput = document.getElementById('image');
 const previewContainer = document.getElementById('previewImages');
@@ -167,8 +169,16 @@ document.getElementById('recipeForm').addEventListener('submit', async function(
 
     for (let i = 0; i < files.length; i++) {
         const file = files[i];
-        const storageReference = storageRef(storage, `imagesEecettes/${recipeName}_${Date.now()}_${file.name}`);
+        const sanitizedFileName = file.name.replace(/\s+/g, '_').replace(/[^\w.-]/g, '');
+        const storageReference = storageRef(storage, `imagesRecettes/${recipeName}_${Date.now()}_${sanitizedFileName}`);
+        // Créer une référence de stockage avec un nom de fichier unique
         try {
+            console.log(`Uploading ${file.name} to ${storageReference.fullPath}`);
+            console.log(`File size: ${file.size} bytes`);
+            console.log(`File type: ${file.type}`);
+            console.log(`File last modified: ${file.lastModified}`);
+            console.log(file);
+            // Upload the file to Firebase Storage
             await uploadBytes(storageReference, file);
             const url = await getDownloadURL(storageReference);
             imageUrls.push(url);
@@ -183,7 +193,7 @@ document.getElementById('recipeForm').addEventListener('submit', async function(
         nom: recipeName,
         url_images: imageUrls.length > 0 
         ? imageUrls 
-        : ['./default.jpg'], // Toujours un tableau, même avec une valeur par défaut
+        : ['./default-thumbnail.jpg'], // Toujours un tableau, même avec une valeur par défaut
         description,
         category,
         difficulty,
