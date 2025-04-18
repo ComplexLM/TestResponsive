@@ -48,7 +48,7 @@ function applyFilters() {
     filteredRecipes = allRecipes.filter(recipe => {
         const matchesSearch = recipe.nom && recipe.nom.toLowerCase().includes(searchQuery);
         //const matchesIngredients = recipe.ingredients && recipe.ingredients.some(ingredient => ingredient.toLowerCase().includes(searchQuery));
-        const matchesDifficulty = !difficulty || recipe.difficulte === difficulty;
+        const matchesDifficulty = !difficulty || recipe.difficulty === difficulty;
         const matchesTime = !time || (time === "moins30" && recipe.temps <= 30) ||
             (time === "30-60" && recipe.temps > 30 && recipe.temps <= 60) ||
             (time === "plus60" && recipe.temps > 60);
@@ -84,7 +84,7 @@ function renderRecipes() {
         name.textContent = recipe.nom;
 
         const difficulty = document.createElement('p');
-        difficulty.textContent = recipe.difficulte ? `Difficulty: ${recipe.difficulte}` : 'Difficulty: not specified';
+        difficulty.textContent = recipe.difficulty ? `Difficulty: ${recipe.difficulty}` : 'Difficulty: not specified';
         difficulty.classList.add('recipe-difficulty');
 
         const prepTime = document.createElement('p');
