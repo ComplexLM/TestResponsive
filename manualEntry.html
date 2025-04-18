@@ -18,42 +18,67 @@
 <body>
     <div id="header"></div>
     <section>
-        <div class="form_container">
-            <h1>Entrer une Recette</h1>
-            <form id="recipeForm">
-                <label for="recipeName">Nom de la recette:</label>
-                <input type="text" id="recipeName" name="recipeName" required><br><br>
+        <div class="form-wrapper">
+            <div class="form_container">
+                <h1>Entrer une Recette</h1>
+                <form id="recipeForm">
+                    <label for="recipeName">Nom de la recette:</label>
+                    <input type="text" id="recipeName" name="recipeName" required><br><br>
 
-                <label for="servings">Pour combien de personnes:</label>
-                <input type="number" id="servings" name="servings" required><br><br>
+                    <label for="image">Image de la recette:</label>
+                    <input type="file" id="image" name="image" accept="image/*"><br><br>
+                    <div id="previewImages" style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px;"></div>
 
-                <label for="ingredient">Ajouter un ingrédient:</label><br><br>
-                <label for="ingredientSearch">Rechercher un ingrédient:</label>
-                <input type="text" id="ingredientSearch" name="ingredientSearch" list="ingredientSuggestions" placeholder="Tapez pour rechercher...">
-                <datalist id="ingredientSuggestions"></datalist>
-                <input type="number" id="quantity" name="quantity" placeholder="Quantité">
-                <select id="unit" name="unit">
-                    <option value="unités">unité(s)</option>
-                    <option value="cuillère à soupe">cuillère à soupe</option>
-                    <option value="cuillère à café">cuillère à café</option>
-                    <option value="g">grammes</option>
-                    <option value="mg">mg</option>
-                    <option value="kg">kg</option>
-                    <option value="mL">mL</option>
-                    <option value="cL">cL</option>
-                    <option value="L">L</option>
-                </select>
-                <button type="button" id="addIngredient">Ajouter</button>
-                <ul id="ingredientList"></ul><br><br>
+                    <label for="servings">Pour combien de personnes:</label>
+                    <input type="number" id="servings" name="servings" required><br><br>
 
-                <label for="cookingMethod">Mode de cuisson:</label>
-                <input type="text" id="cookingMethod" name="cookingMethod" required><br><br>
+                    <label for="ingredient">Ajouter un ingrédient:</label><br><br>
+                    <label for="ingredientSearch">Rechercher un ingrédient:</label>
+                    <input type="text" id="ingredientSearch" name="ingredientSearch" list="ingredientSuggestions" placeholder="Tapez pour rechercher...">
+                    <datalist id="ingredientSuggestions"></datalist>
+                    <input type="number" id="quantity" name="quantity" placeholder="Quantité">
+                    <select id="unit" name="unit">
+                        <option value="unités">unité(s)</option>
+                        <option value="cuillère à soupe">cuillère à soupe</option>
+                        <option value="cuillère à café">cuillère à café</option>
+                        <option value="g">grammes</option>
+                        <option value="mg">mg</option>
+                        <option value="kg">kg</option>
+                        <option value="mL">mL</option>
+                        <option value="cL">cL</option>
+                        <option value="L">L</option>
+                    </select>
+                    <button type="button" id="addIngredient">Ajouter</button>
+                    <ul id="ingredientList"></ul><br><br>
 
-                <label for="steps">Étapes de la recette (séparées par des points-virgules):</label>
-                <textarea id="steps" name="steps" required></textarea><br><br>
+                    <label for="cookingMethod">Mode de cuisson:</label>
+                    <input type="text" id="cookingMethod" name="cookingMethod" required><br><br>
 
-                <button type="submit">Soumettre</button>
-            </form>
+                    <label for="steps">Étapes de la recette (séparées par des points-virgules):</label>
+                    <textarea id="steps" name="steps" required></textarea><br><br>
+
+                    <label for="description">Description:</label>
+                    <textarea id="description" name="description" required></textarea><br><br>
+
+                    <label for="category">Catégorie:</label>
+                    <input type="text" id="category" name="category" required><br><br>
+
+                    <label for="difficulty">Difficulté:</label>
+                    <select id="difficulty" name="difficulty" required>
+                        <option value="Facile">Facile</option>
+                        <option value="Moyenne">Moyenne</option>
+                        <option value="Difficile">Difficile</option>
+                    </select><br><br>
+
+                    <label for="cuisine">Cuisine:</label>
+                    <input type="text" id="cuisine" name="cuisine" required><br><br>
+
+                    <label for="videoLink">Lien vers une vidéo:</label>
+                    <input type="url" id="videoLink" name="videoLink"><br><br>
+
+                    <button type="submit">Soumettre</button>
+                </form>
+            </div>
         </div>
     </section>
     <div id="footer"></div>

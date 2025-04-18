@@ -40,13 +40,14 @@ function fetchRecipes() {
 
 // Apply search and filters
 function applyFilters() {
-    const searchQuery = searchBar.value.toLowerCase();
+    const searchQuery = searchBar.value?.toLowerCase();
     const difficulty = filterDifficulty.value;
     const time = filterTime.value;
     const type = filterType.value;
 
     filteredRecipes = allRecipes.filter(recipe => {
-        const matchesSearch = recipe.nom.toLowerCase().includes(searchQuery);
+        const matchesSearch = recipe.nom && recipe.nom.toLowerCase().includes(searchQuery);
+        //const matchesIngredients = recipe.ingredients && recipe.ingredients.some(ingredient => ingredient.toLowerCase().includes(searchQuery));
         const matchesDifficulty = !difficulty || recipe.difficulte === difficulty;
         const matchesTime = !time || (time === "moins30" && recipe.temps <= 30) ||
             (time === "30-60" && recipe.temps > 30 && recipe.temps <= 60) ||

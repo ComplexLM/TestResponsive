@@ -84,5 +84,17 @@
         "repeat": "Répéter pour chaque feuille de nori."
       }
     ],
-    "notes": "Utiliser du saumon très frais, idéalement acheté chez un poissonnier qui garantit la qualité sashimi. Servir avec sauce soja, wasabi et gingembre mariné."
-  }
+    "notes": "Utiliser du saumon très frais, idéalement acheté chez un poissonnier qui garantit la qualité sashimi. Servir avec sauce soja, wasabi et gingembre mariné.",
+    "tags": ["sushi", "japanese", "seafood", "easy"],
+    "nutrition": {
+      "calories": 250,
+      "protein": "15g",
+      "carbohydrates": "30g",
+      "fat": "8g"
+    },
+    "equipment": [
+      "natte en bambou",
+      "couteau bien aiguisé",
+      "cuiseur à riz"
+    ]
+}
