@@ -167,7 +167,7 @@ document.getElementById('recipeForm').addEventListener('submit', async function(
 
     for (let i = 0; i < files.length; i++) {
         const file = files[i];
-        const storageReference = storageRef(storage, `recettes/${recipeName}_${Date.now()}_${file.name}`);
+        const storageReference = storageRef(storage, `imagesEecettes/${recipeName}_${Date.now()}_${file.name}`);
         try {
             await uploadBytes(storageReference, file);
             const url = await getDownloadURL(storageReference);
@@ -180,10 +180,10 @@ document.getElementById('recipeForm').addEventListener('submit', async function(
 
     // Création du JSON de recette
     const recipe = {
-        title: recipeName,
+        nom: recipeName,
         url_images: imageUrls.length > 0 
-            ? imageUrls 
-            : ['./default.jpg'], // Toujours un tableau, même avec une valeur par défaut
+        ? imageUrls 
+        : ['./default.jpg'], // Toujours un tableau, même avec une valeur par défaut
         description,
         category,
         difficulty,
