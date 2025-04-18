@@ -20,36 +20,31 @@ const storage = getStorage(app);
 console.log("Firebase Storage initialisé avec succès !");
 console.log("Référence de Firebase Storage :", storage);
 
-const selectedFiles = [];
+// Constants pour le stockage des images FRONTEND
+const dropArea = document.getElementById('dropArea');
+const fileInput = document.getElementById('image');
+const previewContainer = document.getElementById('previewImages');
+let selectedFiles = [];
 
-// Événement : Afficher l'aperçu des images sélectionnées
-document.getElementById('image').addEventListener('change', function(event) {
-    const previewContainer = document.getElementById('previewImages');
-    previewContainer.innerHTML = ''; // Réinitialiser les aperçus
-
-    // Réinitialiser le tableau des fichiers sélectionnés
-    selectedFiles.length = 0;
-    const files = Array.from(event.target.files);
-
-    files.forEach((file, index) => {
-        // On ne garde que les images
-        if (!file.type.startsWith('image/')) return;
-
-        selectedFiles.push(file); // Ajouter au tableau temporaire
-
+// Fonction pour afficher les aperçus avec suppression et drag & drop
+function updatePreviews() {
+    previewContainer.innerHTML = '';
+    selectedFiles.forEach((file, index) => {
         const reader = new FileReader();
         reader.onload = function(e) {
             const wrapper = document.createElement('div');
-            wrapper.style.display = 'inline-block';
-            wrapper.style.margin = '10px';
+            wrapper.classList.add('image-wrapper');
+            wrapper.setAttribute('draggable', true);
+            wrapper.setAttribute('data-index', index);
             wrapper.style.position = 'relative';
+            wrapper.style.width = '100px';
 
             const img = document.createElement('img');
             img.src = e.target.result;
             img.style.height = '100px';
-            img.style.borderRadius = '8px';
+            img.style.width = '100px';
             img.style.objectFit = 'cover';
-            img.alt = `Image sélectionnée`;
+            img.style.borderRadius = '8px';
 
             const removeBtn = document.createElement('button');
             removeBtn.textContent = '✕';
@@ -63,22 +58,77 @@ document.getElementById('image').addEventListener('change', function(event) {
             removeBtn.style.cursor = 'pointer';
             removeBtn.style.width = '20px';
             removeBtn.style.height = '20px';
-            removeBtn.title = 'Supprimer cette image';
 
             removeBtn.addEventListener('click', () => {
-                selectedFiles.splice(index, 1); // Supprimer l'image du tableau
-                wrapper.remove(); // Supprimer l'aperçu
+                selectedFiles.splice(index, 1);
+                updatePreviews();
             });
 
             wrapper.appendChild(img);
             wrapper.appendChild(removeBtn);
             previewContainer.appendChild(wrapper);
-        };
 
+            // Drag & Drop entre images
+            wrapper.addEventListener('dragstart', (e) => {
+                e.dataTransfer.setData('text/plain', index);
+                wrapper.style.opacity = '0.5';
+            });
+
+            wrapper.addEventListener('dragend', () => {
+                wrapper.style.opacity = '1';
+            });
+
+            wrapper.addEventListener('dragover', (e) => {
+                e.preventDefault();
+            });
+
+            wrapper.addEventListener('drop', (e) => {
+                e.preventDefault();
+                const fromIndex = parseInt(e.dataTransfer.getData('text/plain'), 10);
+                const toIndex = index;
+
+                const [moved] = selectedFiles.splice(fromIndex, 1);
+                selectedFiles.splice(toIndex, 0, moved);
+                updatePreviews();
+            });
+        };
         reader.readAsDataURL(file);
+    });
+}
+
+// Gestion du champ file input
+fileInput.addEventListener('change', function(e) {
+    Array.from(e.target.files).forEach(file => {
+        if (file.type.startsWith('image/')) {
+            selectedFiles.push(file);
+        }
+    });
+    updatePreviews();
+});
+
+// Gestion du drop
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+    dropArea.addEventListener(eventName, e => {
+        e.preventDefault();
+        dropArea.style.backgroundColor = eventName === 'dragleave' || eventName === 'drop' ? '#fff' : '#f0f0f0';
     });
 });
 
+dropArea.addEventListener('drop', e => {
+    const files = Array.from(e.dataTransfer.files);
+    files.forEach(file => {
+        if (file.type.startsWith('image/')) {
+            selectedFiles.push(file);
+        }
+    });
+    updatePreviews();
+});
+
+// Click = ouvrir le file input
+dropArea.addEventListener('click', () => {
+    const fileInput = dropArea.querySelector('input[type="file"]');
+    fileInput.click();
+});
 
 // Initialize the ingredient list
 const ingredientList = [];
@@ -109,8 +159,9 @@ document.getElementById('recipeForm').addEventListener('submit', async function(
     }
     
     // Upload des images
-    const imageInput = document.getElementById('image'); // ID corrigé
-    const files = selectedFiles; // Utiliser le tableau temporaire
+    const files = selectedFiles;
+
+
     //const storage = getStorage(app);
     const imageUrls = [];
 
